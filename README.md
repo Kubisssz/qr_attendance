@@ -23,3 +23,27 @@ This project is a simple QR Attendance System developed using Django. It allows 
    Clone this repository to your local machine using the following command:
    ```bash
    git clone https://github.com/Kubisssz/qr_attendance.git
+   
+2. **Navigate to the Project Directory**
+    Navigate to the Project Directory Change your directory to the project folder:
+   ```bash
+   cd qr_attendance
+
+3. **Install Requirements**
+     It is recommended to create a virtual environment and activate it. Then, install the required packages:
+    ```bash
+    pip install -r requirements.txt
+
+4.**Run Migrations**
+     Run Migrations Apply database migrations to set up the initial database schema:
+   ```bash
+   python manage.py migrate
+
+
+
+
+
+
+
+
+
