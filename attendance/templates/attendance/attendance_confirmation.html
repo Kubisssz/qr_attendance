@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Confirmation</title>
+    <link rel="stylesheet" href="{% static 'attendance/style.css' %}"> <!-- Link your CSS file -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: white; /* Gradient background */
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text for contrast */
+            margin: 0;
+        }
+        .confirmation-box {
+            text-align: center;
+            background-color: black; /* White background with transparency */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 300px; /* Set a fixed width */
+        }
+        h1 {
+            color: white; /* Green color for success */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .quote {
+            font-style: italic; /* Italicize the quote */
+            margin-top: 20px;
+            color: darkolivegreen; /* Darker color for the quote */
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <img src="{% static 'attendance/Top-Click-Logo-WEBSITE-04.png' %}" style="height: 100px; vertical-align: middle;">
+        <h1>Attendance Confirmation</h1>
+        <p>{{ message }}</p>
+        {% if check_in_time %}
+            <p>Check-in Time: {{ check_in_time }}</p>
+            <p class="quote">"The journey of a thousand miles begins with one step."</p> <!-- Motivational quote -->
+        {% endif %}
+        {% if check_out_time %}
+            <p>Check-out Time: {{ check_out_time }}</p>
+            <p class="quote">"Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful."</p> <!-- Motivational quote -->
+        {% endif %}
+    </div>
+</body>
+</html>

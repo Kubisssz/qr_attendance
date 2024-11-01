@@ -1,0 +1,26 @@
+<!-- attendance/templates/attendance/report.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Check-In Time</th>
+            <th>Check-Out Time</th>
+        </tr>
+        {% for record in attendance_records %}
+        <tr>
+            <td>{{ record.employee.name }}</td>
+            <td>{{ record.check_in_time }}</td>
+            <td>{{ record.check_out_time|default:"Not Checked Out" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

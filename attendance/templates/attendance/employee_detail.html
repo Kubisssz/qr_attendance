@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Attendance System</title>
+    <link rel="stylesheet" href="{% static 'FacultyView/Index_Style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            /* Soft background color */
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(118.4deg, rgb(122, 35, 52) 27.5%, rgb(62, 9, 27) 92.7%);
+            color: white;
+            padding: 20px;
+            /* Increase padding for a larger header */
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 120px);
+        }
+
+        .employee-detail,
+        .qr-code-container {
+            background: white;
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.2s;
+            /* Smooth hover effect */
+        }
+
+        .employee-detail:hover,
+        .qr-code-container:hover {
+            transform: scale(1.02);
+            /* Slight zoom effect on hover */
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            font-weight: 300;
+            /* Lighter font weight for a clean look */
+        }
+
+        h1 {
+            font-size: 36px;
+            /* Larger title */
+        }
+
+        h2 {
+            font-size: 24px;
+            /* Subheading */
+            color: black;
+            /* Primary color for headings */
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+            /* Consistent font size */
+        }
+
+        .qr-code-container img {
+            border-radius: 10px;
+            /* Rounded corners for QR code */
+            margin: 20px 0;
+            border: 2px solid #4CAF50;
+            /* Border color matching primary color */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow for depth */
+        }
+
+        .hint {
+            color: #777;
+            /* Slightly muted text */
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer {
+            background: linear-gradient(118.4deg, rgb(122, 35, 52) 27.5%, rgb(62, 9, 27) 92.7%);
+            /* Primary color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            /* Stack items vertically */
+            align-items: center;
+            /* Center items horizontally */
+            justify-content: center;
+            /* Center items vertically */
+        }
+
+        .qr-code-image {
+            display: flex;
+            /* Make it a flex container */
+            justify-content: center;
+            /* Center the image */
+            margin: 20px 0;
+            /* Space above and below the image */
+        }
+
+        .qr-code-container img {
+            border-radius: 10px;
+            /* Rounded corners for QR code */
+            border: 2px solid #4CAF50;
+            /* Border color matching primary color */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow for depth */
+        }
+
+        .portal-title {
+            color: #FF5733;
+
+        }
+
+        .center-title {
+            text-align: center;
+            /* Center the text */
+            color: black;
+            /* Change this to your desired color */
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        @media (max-width: 600px) {
+
+            .employee-detail,
+            .qr-code-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="{% static 'attendance/Top-Click-Logo-WEBSITE-04.png' %}" style="height: 100px; vertical-align: middle;">
+    </header>
+    <main>
+        <div class="employee-detail">
+            <h2 class="center-title">Employee Attendance Portal</h2>
+            <br>
+            <br>
+            <p><strong>Name:</strong> {{ employee.name }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <p><strong>Telephone:</strong> {{ employee.telephone }}</p>
+            <p>Employee ID: {{ employee.employee_id }}</p>
+        </div>
+
+        <div class="qr-code-container">
+            <h2>Scan to Mark Attendance</h2>
+            <div class="qr-code-image">
+                <img src="{% url 'attendance:generate_qr_code' employee.id %}" alt="QR Code for {{ employee.name }}" width="300" height="300" />
+            </div>
+            <p class="hint">Please scan the QR code to mark your attendance.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Attendance System 2024 - Topclick</p>
+    </footer>
+</body>
+
+</html>
