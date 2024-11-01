@@ -40,14 +40,19 @@ This project is a simple QR Attendance System developed using Django. It allows 
    python manage.py migrate
 
 5. **Create a Superuser (optional)**
+   If you want to access the Django admin panel, create a superuser account:
    ```bash
    python manage.py createsuperuser
 
 6. **Run the Development Server**
+   Start the Django development server:
    ```bash
    python manage.py runserver
 
+7. **Access the Application Open your web browser and go to http://127.0.0.1:8000/ to access the application.**
 
+### Usage
+  After accessing the application, employees can input their ID to view and scan their QR code for attendance marking.
 
 
 
