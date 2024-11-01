@@ -1,0 +1,5 @@
+Django>=3.2
+qrcode[pil]  # for generating QR codes
+Pillow        # for image processing
+
+
