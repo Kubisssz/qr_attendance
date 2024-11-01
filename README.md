@@ -51,12 +51,6 @@ This project is a simple QR Attendance System developed using Django. It allows 
 
 7. **Access the Application Open your web browser and go to http://127.0.0.1:8000/ to access the application.**
 
-## App Screenshot
-Here is a screenshot of the QR Attendance System in action:
-
-![QR Attendance System](images/attendance_screenshot.png)
-
-
 ### Usage
   After accessing the application, employees can input their ID to view and scan their QR code for attendance marking.
 
