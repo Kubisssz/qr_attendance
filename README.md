@@ -34,11 +34,18 @@ This project is a simple QR Attendance System developed using Django. It allows 
     ```bash
     pip install -r requirements.txt
 
-4.**Run Migrations**
+4. **Run Migrations**
      Run Migrations Apply database migrations to set up the initial database schema:
    ```bash
    python manage.py migrate
 
+5. **Create a Superuser (optional)**
+   ```bash
+   python manage.py createsuperuser
+
+6. **Run the Development Server**
+   ```bash
+   python manage.py runserver
 
 
 
